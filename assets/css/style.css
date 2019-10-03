@@ -1,7 +1,24 @@
 body {
 margin-left: 100px ;
-margin-right: 200px;
+
 background-color: #17202A ;
 color: #ffffff;
 
+}
+
+#main_header {
+    height: 100px;
+    margin-right: 135px;
+    width: "100%";
+    background-image: url("../images/cartoontitle.png");
+}
+
+#main-content {
+    margin-right: 200px;
+}
+
+#cartoonName {
+    width: "100%";
+    text-align: center;
+    float: center;
 }
