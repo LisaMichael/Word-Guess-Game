@@ -34,7 +34,7 @@ document.onkeyup = function () {
 
    let unknownAnswer = [];
    for (let i = 0; i < randomCartoon.length; i++) {
-      unknownAnswer[i] = "_ ";
+      unknownAnswer[i] = "_";
 
 
       // console.log(unknownAnswer.join(' '));
@@ -54,23 +54,37 @@ document.onkeyup = function () {
    // of whatever is pressed and turn to string and make it lowercase
 
    document.onkeyup = function (event) {
-      let letter = String.fromCharCode(event.keyCode).toLowerCase();
-      alert(letter);
-   }
+      guessLetter = String.fromCharCode(event.keyCode).toLowerCase();
+      alert(guessLetter);
+      console.log(guessLetter);
 
 
-   //checking to see if alphabet selected is in randomly chosen Cartoon
+        //checking to see if alphabet selected(pressed) is contained in randomly chosen Cartoon
    // https://github.com/the-realest-stu/Hangman-Game/blob/master/assets/javascript/game.js
 
-
-
-   for (let i = 0; i < randomCartoon.length; i++) {
-      if (unknownAnswer.charAt(i) === letter) {
-         isInWord = true;
-
-         alert(unknownAnswer);
+      for (let j = 0; j < randomCartoon.length; j++) {
+         if (randomCartoon[j] === guessLetter) {
+            isInWord = true;
+             unknownAnswer[j] = guessLetter ;
+   console.log(isInWord);
+            alert(unknownAnswer);
+         }
+         else{console.log("im ignoring the if statement");}
       }
+      
+      //checking to see if isInWord is true or false. if false ++
+      if(randomCartoon !=guessLetter) {
+         isInWord=false;
+      incorrectGuess++
+      console.log("number of incorrect guesses: " + incorrectGuess);
    }
+   }
+
+
+ 
+
+
+   
 }
 
 
