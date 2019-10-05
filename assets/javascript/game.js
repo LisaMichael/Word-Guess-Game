@@ -2,12 +2,13 @@
 
 // create variables i'm going to use in the game. 
 
-let wins = 0;
-let guessLetter = 0;
+let wins = 0; //win-counter
+let guessLetter = 0; 
 let incorrectGuess = 0;
+let maxIncorrect = 13; 
 
 //boolean to check if pressed letter is in word
-var isInWord = false;
+let isInWord = false;
 
 // letters user can choose from
 //remming out because it seems i don't need it. leaving in comments, just in case
@@ -18,6 +19,19 @@ let cartoon = ["FLINTSTONES", "JETSONS", "FROZEN", "GARFIELD", "BAMBI", "UNDERDO
 
 // lettersInWord = number of characters in the word
 let lettersInWord = 0;
+
+// reset button 
+
+function reset() {
+   
+   guessLetter = 0; 
+   incorrectGuess = 0;
+   maxIncorrect = 13; 
+   unknownAnswer = [];
+   
+   //boolean to check if pressed letter is in word
+   isInWord = false;
+   }
 
 //press any key to get gamestarted
 
@@ -35,19 +49,22 @@ document.onkeyup = function () {
    // random cartoon/ unguessed word will display in dashes
    let unknownAnswer = [];
    for (let i = 0; i < randomCartoon.length; i++) {
+
+       // elements.join(''); to remove the quotation marks
       unknownAnswer[i] = "_";
    }
 
-   // elements.join(''); to remove the quotation marks
+  
 
    //printing to console and alert for testing
    console.log(unknownAnswer.join(' '));
    alert(unknownAnswer.join(' '));
 
 
+
    // ************************************
-    // ************************************
-     // ************************************
+   // ************************************
+   // ************************************
    //array of incorrect guessed letters
    // array code here 
 
@@ -65,37 +82,50 @@ document.onkeyup = function () {
       alert(guessLetter);
       console.log(guessLetter);
 
-      //TRIED A WHILE STATEMENT BUT NOT WORKING
-      // while (incorrectGuess < 15){
-
 
       //checking to see if alphabet selected(pressed) is contained in randomly chosen Cartoon
       // https://github.com/the-realest-stu/Hangman-Game/blob/master/assets/javascript/game.js
 
       for (let j = 0; j < randomCartoon.length; j++) {
          if (randomCartoon[j] === guessLetter) {
-           
+
             unknownAnswer[j] = guessLetter;
             isInWord = true;
             lettersInWord++
             console.log(isInWord);
             console.log(unknownAnswer.join(' '));
          }
-         
-         }
-        
-       //  ++++++++++++++
 
-      if(!isInWord) {
+      }
+
+// +++++++++++++++++++
+//++++++++++++++++++++ Display word to be guessed in HTML
+//++++++++++++++++++++
+      let html1 = "<p> " + unknownAnswer.join(' ') + "</p>";
+document.querySelector('#word-array').innerHTML = html1;
+
+
+      //  ++++++++++++++ 
+      // +++++++++++++++ if letter is not in guess word, add to incorrect guesses counter
+      //++++++++++++++++
+
+      if (!isInWord) {
          incorrectGuess++;
          alert(incorrectGuess + " of wrong guesses");
          console.log(incorrectGuess + " of wrong guesses");
       }
-// if the # of correct characters in the my guesses equals the length of the word
-// means that i have guessed the word 
-      if (lettersInWord === (unknownAnswer.length)){
+      // if the # of correct characters in the my guesses equals the length of the word
+      // means that i have guessed the word 
+      if (lettersInWord === (unknownAnswer.length)) {
          wins++;
          console.log('wins ', wins)
+
+         // +++++++++++++++++++++
+         // ++++++++++++++++++++     ADD WIN++ COUNTER TO HTML
+         // ++++++++++++++++++++
+
+         let html = "<p> wins: " + wins + "</p>";
+         document.querySelector('#win-counter').innerHTML = html;
       }
 
       // ***********************************************
@@ -113,10 +143,10 @@ document.onkeyup = function () {
       // I NEED TO CREATE CODE TO DETERMINE IF LETTER WAS ALREADY SELECTED
 
 
-// ***********************************************
-// ***********************************************
-// ***********************************************
-// I NEED TO CREATE CODE TO DETERMINE 
+      // ***********************************************
+      // ***********************************************
+      // ***********************************************
+      // I NEED TO CREATE CODE TO DETERMINE 
 
       //checking to see if isInWord is true or false. if false ++
       // THIS NEEDS WORK
