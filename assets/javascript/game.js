@@ -3,9 +3,9 @@
 // create variables i'm going to use in the game. 
 
 let wins = 0; //win-counter
-let guessLetter = 0; 
-let incorrectGuess = 0;
-let maxIncorrect = 13; 
+let guessLetter = 0;
+let wrongGuess = 13;
+
 
 //boolean to check if pressed letter is in word
 let isInWord = false;
@@ -17,21 +17,23 @@ let isInWord = false;
 // cartoon variables should be stored in an array 
 let cartoon = ["FLINTSTONES", "JETSONS", "FROZEN", "GARFIELD", "BAMBI", "UNDERDOG", "POPEYE"];
 
+// testing with 1 array element 
+// let cartoon = ["BAMBI"];
+
 // lettersInWord = number of characters in the word
 let lettersInWord = 0;
 
 // reset button 
 
 function reset() {
-   
-   guessLetter = 0; 
-   incorrectGuess = 0;
-   maxIncorrect = 13; 
+
+   guessLetter = 0;
+   wrongGuess = 0;
    unknownAnswer = [];
-   
+
    //boolean to check if pressed letter is in word
    isInWord = false;
-   }
+}
 
 //press any key to get gamestarted
 
@@ -45,16 +47,20 @@ document.onkeyup = function () {
    let randomCartoon = cartoon[Math.floor(Math.random() * cartoon.length)];
    console.log(randomCartoon);
    alert(randomCartoon);
-
+   
    // random cartoon/ unguessed word will display in dashes
    let unknownAnswer = [];
    for (let i = 0; i < randomCartoon.length; i++) {
 
-       // elements.join(''); to remove the quotation marks
+      // elements.join(''); to remove the quotation marks
       unknownAnswer[i] = "_";
    }
 
-  
+   // +++++++++++++++++++
+   //++++++++++++++++++++ Display word to be guessed (dashes) in HTML
+   //++++++++++++++++++++
+   let html1 = "<p> " + unknownAnswer.join(' ') + "</p>";
+   document.querySelector('#word-array').innerHTML = html1;
 
    //printing to console and alert for testing
    console.log(unknownAnswer.join(' '));
@@ -66,17 +72,18 @@ document.onkeyup = function () {
    // ************************************
    // ************************************
    //array of incorrect guessed letters
-   // array code here 
+   // array code not here yet 
 
 
    //this snippet was taken from the car assignment -wk3
 
    // when key is pressed, on key up, display the string  
-   // of whatever is pressed and turn to string and make it lowercase
+   // of whatever is pressed and turn to string and make it uppercase
 
 
    document.onkeyup = function (event) {
 
+      
       //  randomCartoon = String.fromCharCode(event.keyCode).toLowerCase();
       guessLetter = String.fromCharCode(event.keyCode).toUpperCase();
       alert(guessLetter);
@@ -98,11 +105,13 @@ document.onkeyup = function () {
 
       }
 
-// +++++++++++++++++++
-//++++++++++++++++++++ Display word to be guessed in HTML
-//++++++++++++++++++++
-      let html1 = "<p> " + unknownAnswer.join(' ') + "</p>";
-document.querySelector('#word-array').innerHTML = html1;
+     
+ // +++++++++++++++++++
+   //++++++++++++++++++++ Display word to be guessed (dashes) in HTML
+   //++++++++++++++++++++
+   let html1 = "<p> " + unknownAnswer.join(' ') + "</p>";
+   document.querySelector('#word-array').innerHTML = html1;
+
 
 
       //  ++++++++++++++ 
@@ -110,9 +119,12 @@ document.querySelector('#word-array').innerHTML = html1;
       //++++++++++++++++
 
       if (!isInWord) {
-         incorrectGuess++;
-         alert(incorrectGuess + " of wrong guesses");
-         console.log(incorrectGuess + " of wrong guesses");
+         wrongGuess++;
+         alert(wrongGuess + " of wrong guesses");
+         console.log(wrongGuess + " of wrong guesses");
+         let incorrectGuess = "<p> Guesses Left: " + wrongGuess + "</p>";
+         document.querySelector('#remaining-guesses').innerHTML = incorrectGuess;
+       
       }
       // if the # of correct characters in the my guesses equals the length of the word
       // means that i have guessed the word 
@@ -126,38 +138,50 @@ document.querySelector('#word-array').innerHTML = html1;
 
          let html = "<p> wins: " + wins + "</p>";
          document.querySelector('#win-counter').innerHTML = html;
+
+         // display image on left hand panel for win
+
+         // if (unknownAnswer = cartoon[0]) {
+         let imagewin = "<p> wins: " + wins + "</p>";
+         document.querySelector('#guessed-image').innerHTML = imagewin;
       }
 
-      // ***********************************************
-      // ***********************************************
-      // ***********************************************
-
-      // I NEED TO CREATE AN ARRAY THAT STORES THE LETTERS I HAVE GUESSED
-      // I CAN USE THE POP COMMAND TO APPEND TO THE ARRAY
-      // IF THE SIZE OF THE ARRAY IS GREATER THAN 14, GAME OVER 
 
 
-      // ***********************************************
-      // ***********************************************
-      // ***********************************************
-      // I NEED TO CREATE CODE TO DETERMINE IF LETTER WAS ALREADY SELECTED
-
-
-      // ***********************************************
-      // ***********************************************
-      // ***********************************************
-      // I NEED TO CREATE CODE TO DETERMINE 
-
-      //checking to see if isInWord is true or false. if false ++
-      // THIS NEEDS WORK
-      // if (randomCartoon != guessLetter) {
-      //    isInWord = false;
-      //    incorrectGuess++
-      //    console.log("number of incorrect guesses: " + incorrectGuess);
-      // }
 
    }
 
+   
+   // ***********************************************
+   // ***********************************************
+   // ***********************************************
+
+   // I NEED TO CREATE AN ARRAY THAT STORES THE LETTERS I HAVE GUESSED
+   // I CAN USE THE POP COMMAND TO APPEND TO THE ARRAY
+   // IF THE SIZE OF THE ARRAY IS GREATER THAN 14, GAME OVER 
+
+
+   // ***********************************************
+   // ***********************************************
+   // ***********************************************
+   // I NEED TO CREATE CODE TO DETERMINE IF LETTER WAS ALREADY SELECTED
+
+
+   // ***********************************************
+   // ***********************************************
+   // ***********************************************
+   // I NEED TO CREATE CODE TO DETERMINE 
+
+   //checking to see if isInWord is true or false. if false ++
+   // THIS NEEDS WORK
+   // if (randomCartoon != guessLetter) {
+   //    isInWord = false;
+   //    incorrectGuess++
+   //    console.log("number of incorrect guesses: " + incorrectGuess);
+   // }
 
 }
+
+
+
 
