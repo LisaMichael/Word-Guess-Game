@@ -140,14 +140,14 @@ document.onkeyup = function () {
 
       // if the letter is incorrect, decrement the number of guesses left
       if (!isInWord) {
-         console.log("this is wrong guess now " +  wrongGuess);
+         console.log("this is wrong guess now " + wrongGuess);
          wrongGuess--;
          alert(wrongGuess + " of wrong guesses");
          console.log(wrongGuess + " of wrong guesses");
          let incorrectGuess = "<p> Guesses Left: " + wrongGuess + "</p>";
          document.querySelector('#remaining-guesses').innerHTML = incorrectGuess;
          console.log("used when incorrect letter pressed");
-         document.getElementById('#guessed-letters').innerHTML(guessLetter);
+         // document.getElementById('#guessed-letters').innerHTML(guessLetter);
       }
       else {
          console.log("used when CORRECT letter is pressed");
@@ -172,7 +172,7 @@ document.onkeyup = function () {
          let html = "<p> wins: " + wins + "</p>";
          document.querySelector('#win-counter').innerHTML = html;
 
-         
+
 
 
          // display image on left hand panel for win
@@ -182,45 +182,64 @@ document.onkeyup = function () {
          document.querySelector('#guessed-image').innerHTML = imagewin;
 
 
-         console.log(randomCartoon, "line 179"); 
+         console.log(randomCartoon, "line 179");
 
-// display image on left hand panel for win
-         switch(randomCartoon){
-            case cartoon[0]: 
-            console.log(cartoon[0]);
-            document.querySelector('#imageHere').innerHTML="<img src = ./assets/images/bambi.jpg";
-            break;
+         // display image on left hand panel for win
+         switch (randomCartoon) {
+            case cartoon[0]:
+               console.log(cartoon[0]);
+               // add winning image for 
+               var img = document.createElement("img");
+               img.src = "./assets/images/flintstones.jpg";
+               var src = document.getElementById("imageHere");
+               src.appendChild(img);
 
-            case cartoon[1]: 
-            console.log(cartoon[1]);
-            document.querySelector('#imageHere').innerHTML="<img src = ./assets/images/bambi.jpg";
-            break;
+               break;
 
-            case cartoon[2]: 
-            console.log(cartoon[2]);
-            document.querySelector('#imageHere').innerHTML="<img src = ./assets/images/bambi.jpg";
-            break;
+            case cartoon[1]:
+               var img = document.createElement("img");
+               img.src = "./assets/images/jetsons.jpg";
+               var src = document.getElementById("imageHere");
+               src.appendChild(img);
+               break;
 
-            case cartoon[3]: 
-            console.log(cartoon[3]);
+            case cartoon[2]:
+               console.log(cartoon[2]);
+               var img = document.createElement("img");
+               img.src = "./assets/images/frozen.jpg";
+               var src = document.getElementById("imageHere");
+               src.appendChild(img);
+               break;
 
-            document.querySelector('#imageHere').innerHTML="<img src =assets/images/bambi.jpg";
-            break;
+            case cartoon[3]:
+               console.log(cartoon[3]);
 
-            case cartoon[4]: 
-            console.log(cartoon[4]);
-            document.querySelector('#imageHere').innerHTML="<img src = ./assets/images/bambi.jpg";
-            break;
+               var img = document.createElement("img");
+               img.src = "./assets/images/garfield.jpg";
+               var src = document.getElementById("imageHere");
+               src.appendChild(img);
+               break;
 
-            case cartoon[5]: 
-            console.log(cartoon[5]);
-            document.querySelector('#imageHere').innerHTML="<img src = ./assets/images/bambi.jpg";
-            break;
+            case cartoon[4]:
+               console.log(cartoon[4]);
+               var img = document.createElement("img");
+               img.src = "./assets/images/bambi.jpg";
+               var src = document.getElementById("imageHere");
+               src.appendChild(img);
+               break;
 
-            case cartoon[6]: 
-            console.log(cartoon[6]);
-            document.querySelector('#imageHere').innerHTML="<img src = ./assets/images/bambi.jpg";
-            break;
+            case cartoon[5]:
+               console.log(cartoon[5]);
+               var img = document.createElement("img");
+               img.src = "./assets/images/underdog.jpg";
+               var src = document.getElementById("imageHere");
+               src.appendChild(img);
+               break;
+
+            case cartoon[6]:
+               console.log(cartoon[6]);
+               document.getElementById('#imageHere').innerHTML = "<img src = ./assets/images/bambi.jpg";
+               break;
          }
 
 
