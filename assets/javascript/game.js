@@ -131,12 +131,7 @@ document.onkeyup = function () {
       //array of incorrect guessed letters
       // array code not here yet 
 
-
-
-
-      //  ++++++++++++++ 
-      // +++++++++++++++ if letter is not in guess word, add to incorrect guesses counter
-      //++++++++++++++++
+      
 
       // if the letter is incorrect, decrement the number of guesses left
       if (!isInWord) {
@@ -149,16 +144,21 @@ document.onkeyup = function () {
          console.log("used when incorrect letter pressed");
          // document.getElementById('#guessed-letters').innerHTML(guessLetter);
       }
+
+      // correct letter was pressed 
       else {
          console.log("used when CORRECT letter is pressed");
          let correctGuess = true;
          console.log("line 133 and isinwrd tru but CHANGING to false")
 
-         // now change it back to false
+         // now change it back to false (which is the default value, and we can start all over)
          isInWord = false;
       }
 
+      //console log for testing
       console.log("line 140 " + isInWord);
+
+
       // if the # of correct characters in the my guesses equals the length of the word
       // means that i have guessed the word 
       if (lettersInWord === (unknownAnswer.length)) {
@@ -167,7 +167,7 @@ document.onkeyup = function () {
 
          // +++++++++++++++++++++
          // ++++++++++++++++++++     ADD WIN++ COUNTER TO HTML
-         // ++++++++++++++++++++
+         
 
          let html = "<p> wins: " + wins + "</p>";
          document.querySelector('#win-counter').innerHTML = html;
@@ -176,15 +176,13 @@ document.onkeyup = function () {
 
 
          // display image on left hand panel for win
-
-         // if (unknownAnswer = cartoon[0]) {
          let imagewin = "<p> wins: " + wins + "</p>";
          document.querySelector('#guessed-image').innerHTML = imagewin;
 
-
+// console log for testing
          console.log(randomCartoon, "line 179");
 
-         // display image on left hand panel for win
+         // switch statement to display the correct image based upon random word guessed
          switch (randomCartoon) {
             case cartoon[0]:
                console.log(cartoon[0]);
@@ -221,7 +219,7 @@ document.onkeyup = function () {
                break;
 
             case cartoon[4]:
-               console.log(cartoon[4]);
+               //display correct iamge for bambi
                var img = document.createElement("img");
                img.src = "./assets/images/bambi.jpg";
                var src = document.getElementById("imageHere");
@@ -229,7 +227,7 @@ document.onkeyup = function () {
                break;
 
             case cartoon[5]:
-               console.log(cartoon[5]);
+               //display correct image for underdog 
                var img = document.createElement("img");
                img.src = "./assets/images/underdog.jpg";
                var src = document.getElementById("imageHere");
@@ -237,8 +235,11 @@ document.onkeyup = function () {
                break;
 
             case cartoon[6]:
-               console.log(cartoon[6]);
-               document.getElementById('#imageHere').innerHTML = "<img src = ./assets/images/bambi.jpg";
+               
+               var img = document.createElement("img");
+               img.src = "./assets/images/popeye.jpg";
+               var src = document.getElementById("imageHere");
+               src.appendChild(img);
                break;
          }
 
@@ -246,6 +247,8 @@ document.onkeyup = function () {
          // reset();
       }
 
+
+      // if you exhausted all your guesses, you lost the game
       if (wrongGuess < 1) {
          alert("YOU LOSE !!!");
 
