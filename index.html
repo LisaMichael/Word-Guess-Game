@@ -54,6 +54,8 @@
                             </div>
                             <!--end of div for guessed image-->
 
+                            <!--winning image goes here-->
+                            <div id = "imageHere">.</div> 
                         </div>
                         <!--end of border for border column-->
                     </div> <!-- end of dev for column1 -->
@@ -72,6 +74,8 @@
                             <br>
                             <p id="wins">WINS: </p>
                             <div id="win-counter"></div>
+                            
+                           
                             <!--end of wins div-->
 
                             <br>
@@ -85,7 +89,9 @@
 
                             <br>
                             <!-- <p>Play Again</p> -->
-                            <button type="button" class="btn" id="clear-fields"onclick="reset()">Play Again</button>
+
+                            <!--button is disabled on load but enabled after win-->
+                            <button type="button" class="btn" id="clear-fields" disable>Play Again</button>
                             <div id="play-again"></div>
                             <!--end div of playagain-->
                         </div>
