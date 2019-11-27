@@ -69,7 +69,6 @@ document.onkeyup = function () {
       // elements.join(''); to remove the quotation marks
       unknownAnswer[i] = "_";
 
-
       // +++++++++++++++++++
       //++++++++++++++++++++ Display word to be guessed (dashes) in HTML
       //++++++++++++++++++++
@@ -80,11 +79,9 @@ document.onkeyup = function () {
 
       //printing to console and alert for testing
       console.log(unknownAnswer.join(' '));
-      // alert(unknownAnswer.join(' '));
-      // console.log(unknownAnswer);
 
    }
-
+   alert(unknownAnswer.join(' '));
 
 
 
@@ -143,13 +140,14 @@ document.onkeyup = function () {
 
       // if the letter is incorrect, decrement the number of guesses left
       if (!isInWord) {
-         console.log("this is wrong guess now " + wrongGuess);
+         console.log("this is wrong guess now " +  wrongGuess);
          wrongGuess--;
          alert(wrongGuess + " of wrong guesses");
          console.log(wrongGuess + " of wrong guesses");
          let incorrectGuess = "<p> Guesses Left: " + wrongGuess + "</p>";
          document.querySelector('#remaining-guesses').innerHTML = incorrectGuess;
          console.log("used when incorrect letter pressed");
+         document.getElementById('#guessed-letters').innerHTML(guessLetter);
       }
       else {
          console.log("used when CORRECT letter is pressed");
@@ -174,21 +172,65 @@ document.onkeyup = function () {
          let html = "<p> wins: " + wins + "</p>";
          document.querySelector('#win-counter').innerHTML = html;
 
+         
+
+
          // display image on left hand panel for win
 
          // if (unknownAnswer = cartoon[0]) {
          let imagewin = "<p> wins: " + wins + "</p>";
          document.querySelector('#guessed-image').innerHTML = imagewin;
 
-         reset();
+
+         console.log(randomCartoon, "line 179"); 
+
+// display image on left hand panel for win
+         switch(randomCartoon){
+            case cartoon[0]: 
+            console.log(cartoon[0]);
+            document.querySelector('#imageHere').innerHTML="<img src = ./assets/images/bambi.jpg";
+            break;
+
+            case cartoon[1]: 
+            console.log(cartoon[1]);
+            document.querySelector('#imageHere').innerHTML="<img src = ./assets/images/bambi.jpg";
+            break;
+
+            case cartoon[2]: 
+            console.log(cartoon[2]);
+            document.querySelector('#imageHere').innerHTML="<img src = ./assets/images/bambi.jpg";
+            break;
+
+            case cartoon[3]: 
+            console.log(cartoon[3]);
+
+            document.querySelector('#imageHere').innerHTML="<img src =assets/images/bambi.jpg";
+            break;
+
+            case cartoon[4]: 
+            console.log(cartoon[4]);
+            document.querySelector('#imageHere').innerHTML="<img src = ./assets/images/bambi.jpg";
+            break;
+
+            case cartoon[5]: 
+            console.log(cartoon[5]);
+            document.querySelector('#imageHere').innerHTML="<img src = ./assets/images/bambi.jpg";
+            break;
+
+            case cartoon[6]: 
+            console.log(cartoon[6]);
+            document.querySelector('#imageHere').innerHTML="<img src = ./assets/images/bambi.jpg";
+            break;
+         }
+
+
+         // reset();
       }
 
       if (wrongGuess < 1) {
          alert("YOU LOSE !!!");
 
       }
-
-
 
 
    }
