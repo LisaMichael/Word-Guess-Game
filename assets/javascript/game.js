@@ -26,28 +26,30 @@ let lettersInWord = 0;
 
 function reset() {
 
-   guessLetter = 0;
+   guessLetter = "";
    wrongGuess = 15;
    unknownAnswer = [];
-   randomCartoon = cartoon[Math.floor(Math.random() * cartoon.length)];
+   img.src ="";
+   randomCartoon="";
+   
+   // randomCartoon = cartoon[Math.floor(Math.random() * cartoon.length)];
    //boolean to check if pressed letter is in word
-   unknownAnswer = [];
-   for (let i = 0; i < randomCartoon.length; i++) {
+   // for (let i = 0; i < randomCartoon.length; i++) {
 
       // elements.join(''); to remove the quotation marks
-      unknownAnswer[i] = "_";
+      // unknownAnswer[i] = "_";
 
 
       // +++++++++++++++++++
       //++++++++++++++++++++ Display word to be guessed (dashes) in HTML
       //++++++++++++++++++++
 
-      html1 = "<p> " + unknownAnswer.join(' ') + "</p>";
-      // console.log(html1);
-      document.querySelector('#word-array').innerHTML = html1;
-      isInWord = false;
+      // html1 = "<p> " + unknownAnswer.join(' ') + "</p>";
+      // // console.log(html1);
+      // document.querySelector('#word-array').innerHTML = html1;
+      // isInWord = false;
       // return;
-   }
+   // }
 }
 
 
@@ -119,7 +121,7 @@ document.onkeyup = function () {
 
             let html1 = "<p> " + unknownAnswer.join(' ') + "</p>";
             document.querySelector('#word-array').innerHTML = html1;
-            console.log("i pressed the correct letter");
+            console.log("i pressed the correct letter in for loop");
          }
 
       }
@@ -173,8 +175,6 @@ document.onkeyup = function () {
          document.querySelector('#win-counter').innerHTML = html;
 
 
-
-
          // display image on left hand panel for win
          let imagewin = "<p> wins: " + wins + "</p>";
          document.querySelector('#guessed-image').innerHTML = imagewin;
@@ -191,6 +191,8 @@ document.onkeyup = function () {
                img.src = "./assets/images/flintstones.jpg";
                var src = document.getElementById("imageHere");
                src.appendChild(img);
+               document.getElementById("clearFields").disabled = false;
+               
 
                break;
 
@@ -199,6 +201,8 @@ document.onkeyup = function () {
                img.src = "./assets/images/jetsons.jpg";
                var src = document.getElementById("imageHere");
                src.appendChild(img);
+               document.getElementById("clearFields").disabled = false;
+
                break;
 
             case cartoon[2]:
@@ -207,6 +211,7 @@ document.onkeyup = function () {
                img.src = "./assets/images/frozen.jpg";
                var src = document.getElementById("imageHere");
                src.appendChild(img);
+               document.getElementById("clearFields").disabled = false;
                break;
 
             case cartoon[3]:
@@ -216,6 +221,7 @@ document.onkeyup = function () {
                img.src = "./assets/images/garfield.jpg";
                var src = document.getElementById("imageHere");
                src.appendChild(img);
+               document.getElementById("clearFields").disabled = false;
                break;
 
             case cartoon[4]:
@@ -224,6 +230,7 @@ document.onkeyup = function () {
                img.src = "./assets/images/bambi.jpg";
                var src = document.getElementById("imageHere");
                src.appendChild(img);
+               document.getElementById("clearFields").disabled = false;
                break;
 
             case cartoon[5]:
@@ -232,6 +239,7 @@ document.onkeyup = function () {
                img.src = "./assets/images/underdog.jpg";
                var src = document.getElementById("imageHere");
                src.appendChild(img);
+               document.getElementById("clearFields").disabled = false;
                break;
 
             case cartoon[6]:
@@ -240,6 +248,7 @@ document.onkeyup = function () {
                img.src = "./assets/images/popeye.jpg";
                var src = document.getElementById("imageHere");
                src.appendChild(img);
+               document.getElementById("clearFields").disabled = false;
                break;
          }
 
@@ -258,7 +267,7 @@ document.onkeyup = function () {
    }
 
 
-
+// code so when you click on the button,it resets your settings
 
 
    // ***********************************************
