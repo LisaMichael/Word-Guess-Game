@@ -28,19 +28,19 @@ let lettersInWord = 0;
 // reset button 
 
 function reset() {
-alert("i hit the reset button");
+   alert("i hit the reset button");
    wrongGuess = 15;
    unknownAnswer = [];
-   img.src ="";
-   randomCartoon="";
-   
+   img.src = "";
+   randomCartoon = "";
 
 
-      // +++++++++++++++++++
-      //++++++++++++++++++++ Display word to be guessed (dashes) in HTML
-      //++++++++++++++++++++
 
-     
+   // +++++++++++++++++++
+   //++++++++++++++++++++ Display word to be guessed (dashes) in HTML
+   //++++++++++++++++++++
+
+
 }
 
 
@@ -124,7 +124,7 @@ document.onkeyup = function () {
       //array of incorrect guessed letters
       // array code not here yet 
 
-      
+
 
       // if the letter is incorrect, decrement the number of guesses left
       if (!isInWord) {
@@ -136,11 +136,13 @@ document.onkeyup = function () {
          document.querySelector('#remaining-guesses').innerHTML = incorrectGuess;
          console.log("used when incorrect letter pressed");
 
+         // I NEED TO CREATE AN ARRAY THAT STORES THE LETTERS I HAVE GUESSED
+         // I CAN USE THE PUSH COMMAND TO APPEND TO THE ARRAY
          wrongLetter.push(guessLetter);
-         console.log("wrong letter line 140 "+ wrongLetter);
-         let badLtr = "<p>"+ wrongLetter +"</p>"
-         document.querySelector('#guessedLtrs').innerHTML=badLtr;
-         
+         console.log("wrong letter line 140 " + wrongLetter);
+         let badLtr = "<p>" + wrongLetter + "</p>"
+         document.querySelector('#guessedLtrs').innerHTML = badLtr;
+
       }
 
       // correct letter was pressed 
@@ -165,7 +167,7 @@ document.onkeyup = function () {
 
          // +++++++++++++++++++++
          // ++++++++++++++++++++     ADD WIN++ COUNTER TO HTML
-         
+
 
          let html = "<p> wins: " + wins + "</p>";
          document.querySelector('#win-counter').innerHTML = html;
@@ -175,7 +177,7 @@ document.onkeyup = function () {
          let imagewin = "<p> WiNs: " + wins + "</p>";
          document.querySelector('#guessed-image').innerHTML = imagewin;
 
-// console log for testing
+         // console log for testing
          console.log(randomCartoon, "line 179");
 
          // switch statement to display the correct image based upon random word guessed
@@ -188,7 +190,6 @@ document.onkeyup = function () {
                var src = document.getElementById("imageHere");
                src.appendChild(img);
                document.getElementById("clearFields").disabled = false;
-               
 
                break;
 
@@ -239,7 +240,7 @@ document.onkeyup = function () {
                break;
 
             case cartoon[6]:
-               
+
                var img = document.createElement("img");
                img.src = "./assets/images/popeye.jpg";
                var src = document.getElementById("imageHere");
@@ -256,22 +257,21 @@ document.onkeyup = function () {
       // if you exhausted all your guesses, you lost the game
       if (wrongGuess < 1) {
          alert("YOU LOSE !!!");
-
+         document.querySelector("clearFields").onclick = reset();
       }
 
 
    }
 
 
-// code so when you click on the button,it resets your settings
+   // code so when you click on the button,it resets your settings
 
 
    // ***********************************************
    // ***********************************************
    // ***********************************************
 
-   // I NEED TO CREATE AN ARRAY THAT STORES THE LETTERS I HAVE GUESSED
-   // I CAN USE THE POP COMMAND TO APPEND TO THE ARRAY
+
    // IF THE SIZE OF THE ARRAY IS GREATER THAN 14, GAME OVER 
 
 
@@ -284,6 +284,8 @@ document.onkeyup = function () {
 
 
 }
+
+document.querySelector('clearfields')
 
 
 
