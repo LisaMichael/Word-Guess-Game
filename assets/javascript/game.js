@@ -176,7 +176,7 @@ document.onkeyup = function () {
 
 
          // display image on left hand panel for win
-         let imagewin = "<p> wins: " + wins + "</p>";
+         let imagewin = "<p> WiNs: " + wins + "</p>";
          document.querySelector('#guessed-image').innerHTML = imagewin;
 
 // console log for testing
