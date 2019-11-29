@@ -4,7 +4,7 @@
 
 let wins = 0; //win-counter
 let guessLetter = 0;
-let wrongGuess = 15;
+let wrongGuess = 5;
 let randomCartoon = "";
 
 
@@ -14,6 +14,9 @@ let isInWord = false;
 
 // letters user can choose from
 let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+//incorrectly guessed letters  
+var wrongLetter = [];
 
 // cartoon variables should be stored in an array 
 let cartoon = ["FLINTSTONES", "JETSONS", "FROZEN", "GARFIELD", "BAMBI", "UNDERDOG", "POPEYE"];
@@ -25,31 +28,19 @@ let lettersInWord = 0;
 // reset button 
 
 function reset() {
-
-   guessLetter = "";
+alert("i hit the reset button");
    wrongGuess = 15;
    unknownAnswer = [];
    img.src ="";
    randomCartoon="";
    
-   // randomCartoon = cartoon[Math.floor(Math.random() * cartoon.length)];
-   //boolean to check if pressed letter is in word
-   // for (let i = 0; i < randomCartoon.length; i++) {
-
-      // elements.join(''); to remove the quotation marks
-      // unknownAnswer[i] = "_";
 
 
       // +++++++++++++++++++
       //++++++++++++++++++++ Display word to be guessed (dashes) in HTML
       //++++++++++++++++++++
 
-      // html1 = "<p> " + unknownAnswer.join(' ') + "</p>";
-      // // console.log(html1);
-      // document.querySelector('#word-array').innerHTML = html1;
-      // isInWord = false;
-      // return;
-   // }
+     
 }
 
 
@@ -144,7 +135,12 @@ document.onkeyup = function () {
          let incorrectGuess = "<p> Guesses Left: " + wrongGuess + "</p>";
          document.querySelector('#remaining-guesses').innerHTML = incorrectGuess;
          console.log("used when incorrect letter pressed");
-         // document.getElementById('#guessed-letters').innerHTML(guessLetter);
+
+         wrongLetter.push(guessLetter);
+         console.log("wrong letter line 140 "+ wrongLetter);
+         let badLtr = "<p>"+ wrongLetter +"</p>"
+         document.querySelector('#guessedLtrs').innerHTML=badLtr;
+         
       }
 
       // correct letter was pressed 
@@ -186,7 +182,7 @@ document.onkeyup = function () {
          switch (randomCartoon) {
             case cartoon[0]:
                console.log(cartoon[0]);
-               // add winning image for 
+               // add winning image for flintstones
                var img = document.createElement("img");
                img.src = "./assets/images/flintstones.jpg";
                var src = document.getElementById("imageHere");
