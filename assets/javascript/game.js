@@ -44,14 +44,7 @@ function reset() {
    let defaultImage = "<img src = ./assets/images/satcartoons.jpg>";
    document.querySelector('#imageHere').innerHTML = defaultImage ;
 
-
-   // img.src = "";
-   // var img = document.createElement("img");
-   // img.src = "./assets/images/satcartoons.jpg";
-   // var src = document.getElementById("imageHere");
-
-   // src.appendChild(img);
-   // localStorage
+   playGame();
 
 
    // +++++++++++++++++++
@@ -86,6 +79,14 @@ function reset() {
 
 document.onkeyup = function () {
 
+playGame();
+
+}
+
+// document.querySelector('clearfields')
+
+function playGame() {
+   
    //select a random cartoon 
 
    randomCartoon = cartoon[Math.floor(Math.random() * cartoon.length)];
@@ -318,11 +319,7 @@ document.onkeyup = function () {
    // I NEED TO CREATE CODE TO DETERMINE IF LETTER WAS ALREADY SELECTED
 
 
-
-
 }
-
-document.querySelector('clearfields')
 
 
 
