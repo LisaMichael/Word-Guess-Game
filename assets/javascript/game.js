@@ -8,7 +8,6 @@ let wrongGuess = 5;
 let randomCartoon = "";
 
 
-
 //boolean to check if pressed letter is in word
 let isInWord = false;
 
@@ -27,24 +26,32 @@ let lettersInWord = 0;
 function reset() {
    alert("i hit the reset button");
 
-   let guessLetter = 0;
-   let wrongGuess = 5;
-   let randomCartoon = "";
+    guessLetter = 0;
+    wrongGuess = 5;
+   randomCartoon = "";
 
    //boolean to check if pressed letter is in word
-   let isInWord = false;
+   isInWord = false;
 
    //incorrectly guessed letters  
    wrongLetter = [];
 
    lettersInWord = 0;
    unknownAnswer = [];
+
+   // reset back default image in corner 
+
+   let defaultImage = "<img src = ./assets/images/satcartoons.jpg>";
+   document.querySelector('#imageHere').innerHTML = defaultImage ;
+
+
    // img.src = "";
-   var img = document.createElement("img");
-   img.src = "./assets/images/satcartoons.jpg";
-   var src = document.getElementById("imageHere");
-   src.appendChild(img);
-   localStorage
+   // var img = document.createElement("img");
+   // img.src = "./assets/images/satcartoons.jpg";
+   // var src = document.getElementById("imageHere");
+
+   // src.appendChild(img);
+   // localStorage
 
 
    // +++++++++++++++++++
