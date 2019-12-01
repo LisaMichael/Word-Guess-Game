@@ -12,9 +12,6 @@ let randomCartoon = "";
 //boolean to check if pressed letter is in word
 let isInWord = false;
 
-// letters user can choose from
-let alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-
 //incorrectly guessed letters  
 var wrongLetter = [];
 
@@ -29,16 +26,50 @@ let lettersInWord = 0;
 
 function reset() {
    alert("i hit the reset button");
-   wrongGuess = 15;
-   unknownAnswer = [];
-   img.src = "";
-   randomCartoon = "";
 
+   let guessLetter = 0;
+   let wrongGuess = 5;
+   let randomCartoon = "";
+
+   //boolean to check if pressed letter is in word
+   let isInWord = false;
+
+   //incorrectly guessed letters  
+   wrongLetter = [];
+
+   lettersInWord = 0;
+   unknownAnswer = [];
+   // img.src = "";
+   var img = document.createElement("img");
+   img.src = "./assets/images/satcartoons.jpg";
+   var src = document.getElementById("imageHere");
+   src.appendChild(img);
+   localStorage
 
 
    // +++++++++++++++++++
    //++++++++++++++++++++ Display word to be guessed (dashes) in HTML
    //++++++++++++++++++++
+
+   //select a random cartoon name from array 
+   // randomCartoon = cartoon[Math.floor(Math.random() * cartoon.length)];
+   // console.log(randomCartoon);
+   // alert(randomCartoon);
+
+
+   // random cartoon/ unguessed word will display in dashes
+   // for (let i = 0; i < randomCartoon.length; i++) {
+
+   // elements.join(''); to remove the quotation marks
+   // unknownAnswer[i] = "_";
+
+   // }
+   // let html1 = "<p> " + unknownAnswer.join(' ') + "</p>";
+   // console.log(html1);
+   // document.querySelector('#word-array').innerHTML = html1;
+
+   // printing to console and alert for testing
+   // console.log(unknownAnswer.join(' '));
 
 
 }
@@ -102,7 +133,6 @@ document.onkeyup = function () {
 
             unknownAnswer[j] = guessLetter;
             isInWord = true;
-            console.log(isInWord + " i am hitting this code");
             console.log(unknownAnswer.join(' '));
             lettersInWord++;
 
