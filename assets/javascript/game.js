@@ -156,14 +156,6 @@ function playGame() {
       }
       console.log("line 115 " + isInWord + wrongGuess);
 
-      // ************************************
-      // ************************************
-      // ************************************
-      //array of incorrect guessed letters
-      // array code not here yet 
-
-
-
       // if the letter is incorrect, decrement the number of guesses left
       if (!isInWord) {
          console.log("this is wrong guess now " + wrongGuess);
@@ -178,6 +170,8 @@ function playGame() {
          // I CAN USE THE PUSH COMMAND TO APPEND TO THE ARRAY
          wrongLetter.push(guessLetter);
          console.log("wrong letter line 140 " + wrongLetter);
+
+         // display the incorrect guess 
          let badLtr = "<p>" + wrongLetter + "</p>"
          document.querySelector('#guessedLtrs').innerHTML = badLtr;
 
