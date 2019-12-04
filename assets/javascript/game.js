@@ -21,13 +21,13 @@ let cartoon = ["FLINTSTONES", "JETSONS", "FROZEN", "GARFIELD", "BAMBI", "UNDERDO
 // lettersInWord = number of characters in the word
 let lettersInWord = 0;
 
-// reset button 
 
+// code so when you click on the button,it resets your settings
 function reset() {
    alert("i hit the reset button");
 
-    guessLetter = 0;
-    wrongGuess = 5;
+   guessLetter = 0;
+   wrongGuess = 5;
    randomCartoon = "";
 
    //boolean to check if pressed letter is in word
@@ -42,7 +42,7 @@ function reset() {
    // reset back default image in corner 
 
    let defaultImage = "<img src = ./assets/images/satcartoons.jpg>";
-   document.querySelector('#imageHere').innerHTML = defaultImage ;
+   document.querySelector('#imageHere').innerHTML = defaultImage;
 
    playGame();
 
@@ -79,14 +79,14 @@ function reset() {
 
 document.onkeyup = function () {
 
-playGame();
+   playGame();
 
 }
 
 // document.querySelector('clearfields')
 
 function playGame() {
-   
+
    //select a random cartoon 
 
    randomCartoon = cartoon[Math.floor(Math.random() * cartoon.length)];
@@ -287,11 +287,9 @@ function playGame() {
                break;
          }
 
-
-         // reset();
       }
 
-
+      // IF THE SIZE OF THE ARRAY IS GREATER THAN 14, GAME OVER 
       // if you exhausted all your guesses, you lost the game
       if (wrongGuess < 1) {
          alert("YOU LOSE !!!");
@@ -302,22 +300,11 @@ function playGame() {
    }
 
 
-   // code so when you click on the button,it resets your settings
-
-
-   // ***********************************************
-   // ***********************************************
-   // ***********************************************
-
-
-   // IF THE SIZE OF THE ARRAY IS GREATER THAN 14, GAME OVER 
-
-
    // ***********************************************
    // ***********************************************
    // ***********************************************
    // I NEED TO CREATE CODE TO DETERMINE IF LETTER WAS ALREADY SELECTED
-
+// i can used the alphabet array and perform a search
 
 }
 
