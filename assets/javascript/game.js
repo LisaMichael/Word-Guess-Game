@@ -148,13 +148,9 @@ function playGame() {
       // correct letter was pressed 
       else {
 
-         let correctGuess = true;
-
-
          // now change it back to false (which is the default value, and we can start all over)
          isInWord = false;
       }
-
 
 
       // if the # of correct characters in the my guesses equals the length of the word
@@ -166,7 +162,7 @@ function playGame() {
 
          // ++++++++++++++++++++     ADD WIN++ COUNTER TO HTML
 
-
+         // wins : in the right hand side of the panel 
          let html = "<p> wins: " + wins + "</p>";
          document.querySelector('#win-counter').innerHTML = html;
 
@@ -253,15 +249,7 @@ function playGame() {
          document.querySelector("clearFields").onclick = reset();
       }
 
-
    }
-
-
-   // ***********************************************
-   // ***********************************************
-   // ***********************************************
-   // I NEED TO CREATE CODE TO DETERMINE IF LETTER WAS ALREADY SELECTED
-   // i can used the alphabet array and perform a search
 
 }
 
