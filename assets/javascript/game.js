@@ -24,8 +24,7 @@ let lettersInWord = 0;
 
 // code so when you click on the button,it resets your settings
 function reset() {
-   alert("i hit the reset button");
-
+  
    guessLetter = 0;
    wrongGuess = 5;
    randomCartoon = "";
@@ -47,30 +46,7 @@ function reset() {
    playGame();
 
 
-   // +++++++++++++++++++
-   //++++++++++++++++++++ Display word to be guessed (dashes) in HTML
-   //++++++++++++++++++++
-
-   //select a random cartoon name from array 
-   // randomCartoon = cartoon[Math.floor(Math.random() * cartoon.length)];
-   // console.log(randomCartoon);
-   // alert(randomCartoon);
-
-
-   // random cartoon/ unguessed word will display in dashes
-   // for (let i = 0; i < randomCartoon.length; i++) {
-
-   // elements.join(''); to remove the quotation marks
-   // unknownAnswer[i] = "_";
-
-   // }
-   // let html1 = "<p> " + unknownAnswer.join(' ') + "</p>";
-   // console.log(html1);
-   // document.querySelector('#word-array').innerHTML = html1;
-
-   // printing to console and alert for testing
-   // console.log(unknownAnswer.join(' '));
-
+   
 
 }
 
@@ -91,9 +67,7 @@ function playGame() {
 
    randomCartoon = cartoon[Math.floor(Math.random() * cartoon.length)];
    console.log(randomCartoon);
-   alert(randomCartoon);
-
-
+  
    // random cartoon/ unguessed word will display in dashes
    let unknownAnswer = [];
    for (let i = 0; i < randomCartoon.length; i++) {
@@ -106,17 +80,14 @@ function playGame() {
       //++++++++++++++++++++
 
       let html1 = "<p> " + unknownAnswer.join(' ') + "</p>";
-      // console.log(html1);
+      
       document.querySelector('#word-array').innerHTML = html1;
 
       //printing to console and alert for testing
       console.log(unknownAnswer.join(' '));
 
    }
-   alert(unknownAnswer.join(' '));
-
-
-
+  
 
    //this snippet was taken from the car assignment -wk3
 
@@ -128,7 +99,7 @@ function playGame() {
       // this is the letter i'm guessing 
       //  randomCartoon = String.fromCharCode(event.keyCode).toLowerCase();
       guessLetter = String.fromCharCode(event.keyCode).toUpperCase();
-      alert(guessLetter);
+     
       console.log(guessLetter);
 
 
@@ -158,18 +129,17 @@ function playGame() {
 
       // if the letter is incorrect, decrement the number of guesses left
       if (!isInWord) {
-         console.log("this is wrong guess now " + wrongGuess);
+        
          wrongGuess--;
-         alert(wrongGuess + " of wrong guesses");
-         console.log(wrongGuess + " of wrong guesses");
+         
          let incorrectGuess = "<p> Guesses Left: " + wrongGuess + "</p>";
          document.querySelector('#remaining-guesses').innerHTML = incorrectGuess;
-         console.log("used when incorrect letter pressed");
+         
 
          // I NEED TO CREATE AN ARRAY THAT STORES THE LETTERS I HAVE GUESSED
          // I CAN USE THE PUSH COMMAND TO APPEND TO THE ARRAY
          wrongLetter.push(guessLetter);
-         console.log("wrong letter line 140 " + wrongLetter);
+       
 
          // display the incorrect guess 
          let badLtr = "<p>" + wrongLetter + "</p>"
@@ -179,17 +149,15 @@ function playGame() {
 
       // correct letter was pressed 
       else {
-         console.log("used when CORRECT letter is pressed");
+         
          let correctGuess = true;
-         console.log("line 133 and isinwrd tru but CHANGING to false")
+         
 
          // now change it back to false (which is the default value, and we can start all over)
          isInWord = false;
       }
 
-      //console log for testing
-      console.log("line 140 " + isInWord);
-
+     
 
       // if the # of correct characters in the my guesses equals the length of the word
       // means that i have guessed the word 
@@ -209,8 +177,6 @@ function playGame() {
          let imagewin = "<p> WiNs: " + wins + "</p>";
          document.querySelector('#guessed-image').innerHTML = imagewin;
 
-         // console log for testing
-         console.log(randomCartoon, "line 179");
 
          // switch statement to display the correct image based upon random word guessed
          switch (randomCartoon) {
@@ -235,7 +201,7 @@ function playGame() {
                break;
 
             case cartoon[2]:
-               console.log(cartoon[2]);
+              
                var img = document.createElement("img");
                img.src = "./assets/images/frozen.jpg";
                var src = document.getElementById("imageHere");
@@ -244,7 +210,6 @@ function playGame() {
                break;
 
             case cartoon[3]:
-               console.log(cartoon[3]);
 
                var img = document.createElement("img");
                img.src = "./assets/images/garfield.jpg";
