@@ -24,7 +24,7 @@ let lettersInWord = 0;
 
 // code so when you click on the button,it resets your settings
 function reset() {
-  
+
    guessLetter = 0;
    wrongGuess = 5;
    randomCartoon = "";
@@ -46,7 +46,7 @@ function reset() {
    playGame();
 
 
-   
+
 
 }
 
@@ -67,7 +67,7 @@ function playGame() {
 
    randomCartoon = cartoon[Math.floor(Math.random() * cartoon.length)];
    console.log(randomCartoon);
-  
+
    // random cartoon/ unguessed word will display in dashes
    let unknownAnswer = [];
    for (let i = 0; i < randomCartoon.length; i++) {
@@ -80,14 +80,14 @@ function playGame() {
       //++++++++++++++++++++
 
       let html1 = "<p> " + unknownAnswer.join(' ') + "</p>";
-      
+
       document.querySelector('#word-array').innerHTML = html1;
 
       //printing to console and alert for testing
       console.log(unknownAnswer.join(' '));
 
    }
-  
+
 
    //this snippet was taken from the car assignment -wk3
 
@@ -99,7 +99,7 @@ function playGame() {
       // this is the letter i'm guessing 
       //  randomCartoon = String.fromCharCode(event.keyCode).toLowerCase();
       guessLetter = String.fromCharCode(event.keyCode).toUpperCase();
-     
+
       console.log(guessLetter);
 
 
@@ -115,9 +115,8 @@ function playGame() {
             console.log(unknownAnswer.join(' '));
             lettersInWord++;
 
-            // +++++++++++++++++++
+
             //++++++++++++++++++++ Display word to be guessed (dashes) in HTML
-            //++++++++++++++++++++
 
             let html1 = "<p> " + unknownAnswer.join(' ') + "</p>";
             document.querySelector('#word-array').innerHTML = html1;
@@ -125,21 +124,20 @@ function playGame() {
          }
 
       }
-      console.log("line 115 " + isInWord + wrongGuess);
 
       // if the letter is incorrect, decrement the number of guesses left
       if (!isInWord) {
-        
+
          wrongGuess--;
-         
+
          let incorrectGuess = "<p> Guesses Left: " + wrongGuess + "</p>";
          document.querySelector('#remaining-guesses').innerHTML = incorrectGuess;
-         
+
 
          // I NEED TO CREATE AN ARRAY THAT STORES THE LETTERS I HAVE GUESSED
          // I CAN USE THE PUSH COMMAND TO APPEND TO THE ARRAY
          wrongLetter.push(guessLetter);
-       
+
 
          // display the incorrect guess 
          let badLtr = "<p>" + wrongLetter + "</p>"
@@ -149,15 +147,15 @@ function playGame() {
 
       // correct letter was pressed 
       else {
-         
+
          let correctGuess = true;
-         
+
 
          // now change it back to false (which is the default value, and we can start all over)
          isInWord = false;
       }
 
-     
+
 
       // if the # of correct characters in the my guesses equals the length of the word
       // means that i have guessed the word 
@@ -165,7 +163,7 @@ function playGame() {
          wins++;
          console.log('wins ', wins)
 
-         // +++++++++++++++++++++
+
          // ++++++++++++++++++++     ADD WIN++ COUNTER TO HTML
 
 
@@ -201,7 +199,7 @@ function playGame() {
                break;
 
             case cartoon[2]:
-              
+
                var img = document.createElement("img");
                img.src = "./assets/images/frozen.jpg";
                var src = document.getElementById("imageHere");
@@ -263,7 +261,7 @@ function playGame() {
    // ***********************************************
    // ***********************************************
    // I NEED TO CREATE CODE TO DETERMINE IF LETTER WAS ALREADY SELECTED
-// i can used the alphabet array and perform a search
+   // i can used the alphabet array and perform a search
 
 }
 
